@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class JogoDasPortas {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Escolhe aleatoriamente qual porta contém o prêmio (1, 2 ou 3)
+        int portaComPremio = (int) (Math.random() * 3) + 1;
+
+        System.out.println("Bem-vindo ao Jogo das Portas!");
+        System.out.println("Escolha uma porta (1, 2 ou 3):");
+        int portaEscolhida = scanner.nextInt();
+
+        System.out.println("Você escolheu a Porta " + portaEscolhida + ". Tem certeza? (S/N)");
+        String confirmacao = scanner.next();
+
+        if (confirmacao.equalsIgnoreCase("S")) {
+            if (portaEscolhida == portaComPremio) {
+                // Exibe mensagem de vitória se o usuário escolheu a porta correta
+                System.out.println("Parabéns! Você ganhou o prêmio!");
+            } else {
+                // Exibe mensagem informando que o prêmio estava em outra porta
+                System.out.println("Você escolheu a Porta " + portaEscolhida + ". A Porta " + portaComPremio + " tinha o prêmio.");
+            }
+        } else {
+            System.out.println("Jogo encerrado.");
+        }
+    }
+}
